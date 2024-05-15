@@ -14,16 +14,10 @@ function preload(){
     walkRight: {row:0, col:0,  frames: 4}
   };
   
-  bugs.push(new Bug(10,74,32,32,'assets/hey.png',animations));
-  bugs.push(new Bug(550,random(107,127),32,32,'assets/hey.png',animations));
-  bugs.push(new Bug(0,random(160,180),32,32,'assets/hey.png',animations));
-  bugs.push(new Bug(555,random(215,235),32,32,'assets/hey.png',animations));
-  bugs.push(new Bug(7,random(267,280),32,32,'assets/hey.png',animations));
-  bugs.push(new Bug(550,random(312,330),32,32,'assets/hey.png',animations));
-
-  // bugs.push(new Bug(590,random(139,200),64,64,'assets/man.png',animations));
-  // bugs.push(new Bug(10,random(264,328),64,64,'assets/man.png',animations));
-  // bugs.push(new Bug(590,random(392,456),64,64,'assets/man.png',animations));
+  bugs.push(new Bug(20,74,64,64,'assets/man.png',animations));
+  bugs.push(new Bug(590,random(139,200),64,64,'assets/man.png',animations));
+  bugs.push(new Bug(590,random(264,328),64,64,'assets/man.png',animations));
+  bugs.push(new Bug(590,random(392,456),64,64,'assets/man.png',animations));
   //bugs.push(new Bug(0,74,64,64,'assets/man.png',animations));
   //bugs.push(new Bug(600,74,64,64,'assets/man.png',animations));
   //bugs.push(new Bug(0,74,64,64,'assets/man.png',animations));
@@ -33,7 +27,7 @@ function mousePressed(){
 
    bugs.forEach((bug) => {
     if (bug.contains(mouseX, mouseY)){
-      ;
+      gameTime += 1;
     }
   })
 }
@@ -46,7 +40,7 @@ function gameDone() {
 }
 
 function setup() {
-  createCanvas(550, 550);
+  createCanvas(600, 550);
 }
 
 function draw() {
@@ -116,8 +110,8 @@ class Bug {
   walkRight(){
     this.sprite.changeAni('walkRight')
     frameRate(60);
-    this.sprite.vel.x = speed;
-    this.sprite.scale.x = speed;
+    this.sprite.vel.x = 1;
+    this.sprite.scale.x = 1;
   }
   
   walkLeft(){
