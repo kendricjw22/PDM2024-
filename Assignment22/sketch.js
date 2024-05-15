@@ -42,5 +42,5 @@ function keyReleased(){
 
 function draw() {
   background(220);
-  text('Press "a - k" on the keyboard to play notes', 50, 50);
+  text('Press "a - k" on the keyboard to play notes on scale', 50, 50);
 }
