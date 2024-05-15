@@ -1,9 +1,18 @@
 let synth = new Tone.PolySynth(Tone.MetalSynth);
+let bC = new Tone.BitCrusher(1);
 
-synth.toDestination();
+synth.connect(bC);
+bC.toDestination();
+
+
 
 function setup() {
   createCanvas(400, 400);
+  bcSlider = createSlider(1,16, 1, 0.5);
+  bcSlider.position (130, 300);
+  bcSlider.mouseMoved(()=> bC.bits.value = bcSlider.value());
+  
+  
 }
 
 let notes = {
@@ -33,4 +42,5 @@ function keyReleased(){
 
 function draw() {
   background(220);
+  text('Press "a - k" on the keyboard to play notes', 50, 50);
 }
